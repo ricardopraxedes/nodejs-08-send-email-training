@@ -1,11 +1,23 @@
 version: "3.7"
 
 services:
+  db:
+    image: postgres
+    container_name: db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=training
+      - POSTGRES_PASSWORD=training
+      - POSTGRES_DB=training-db
+    volumes:
+      - pgdata:/data/postgres
   app:
     build:
       context: .
       dockerfile: dockerfile
-    container_name: nodejs-docker-training
+    container_name: nodejs-database-training
     expose:
       - 3333
     ports:
@@ -13,3 +25,10 @@ services:
     volumes:
       - .:/usr/app
     command: npm run dev
+    links:
+      - db
+    depends_on:
+      - db
+volumes:
+  pgdata:
+    driver: local
