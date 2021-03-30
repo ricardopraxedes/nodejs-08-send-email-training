@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    container_name: nodejs-database-training
+    container_name: nodejs-training
     expose:
       - 3333
     ports:

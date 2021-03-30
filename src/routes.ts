@@ -8,13 +8,17 @@ const categoryRoutes = Router();
 const upload = multer({ dest: "./tmp" });
 
 const createCategoryController = new CreateCategoryController();
-const importCategoryController = new ImportCategoryController()
-const listCategoryController = new ListCategoryController()
+const importCategoryController = new ImportCategoryController();
+const listCategoryController = new ListCategoryController();
 
 categoryRoutes.post("/", createCategoryController.handle);
 
 categoryRoutes.get("/", listCategoryController.handle);
 
-categoryRoutes.post("/import", upload.single("file"), importCategoryController.handle);
+categoryRoutes.post(
+  "/import",
+  upload.single("file"),
+  importCategoryController.handle
+);
 
 export { categoryRoutes };

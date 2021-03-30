@@ -1,0 +1,96 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Api Documentation",
+      "description": "This is the api documentation.",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/categories": {
+        "post": {
+          "tag": ["Category"],
+          "summary": "Create a category",
+          "description": "Create a new category",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "name": "category name sample",
+                  "email": "category email sample"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Category already exists",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tag": ["Category"],
+          "summary": "List all categories",
+          "description": "List all categories",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/categories/import": {
+        "post": {
+          "tag": ["Category"],
+          "summary": "Import categories",
+          "description": "Import categories",
+          "requestBody": {
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        }
+      }
+    }
+  }
+  
