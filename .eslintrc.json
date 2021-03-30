@@ -13,12 +13,13 @@
   "rules": {
     "quotes": ["error", "double"],
     "import/prefer-default-export": "off",
-    "import/no-unresolved": "off",
+    "import/no-unresolved": "error",
     "import/extensions": "off",
     "comma-dangle": "off",
     "no-useless-constructor": "off",
     "arrow-body-style": "off",
     "camelcase": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "class-methods-use-this": "off"
   }
 }
