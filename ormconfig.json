@@ -6,6 +6,7 @@
   "password": "training",
   "database": "training-db",
   "migrations": ["./src/database/migrations/*.ts"],
+  "entities": ["./src/**/model/*.ts"],
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }

@@ -1,10 +1,10 @@
 import fs from "fs";
 import csvParse from "csv-parse";
-import { CategoryRepository } from "../../repository/CategoryRepository";
+import { CategoriesRepository } from "../../repository/CategoriesRepository";
 import { Category } from "../../model/Category";
 
 class ImportCategoryUseCase {
-  constructor(private categoryRepository: CategoryRepository) {}
+  constructor(private categoriesRepository: CategoriesRepository) {}
 
   loadCategories(file: Express.Multer.File): Promise<Category[]> {
     return new Promise((resolve, reject) => {
@@ -40,10 +40,10 @@ class ImportCategoryUseCase {
     categories.map((category) => {
       const { name, description } = category;
 
-      const categoryExists = this.categoryRepository.findByName(name);
+      const categoryExists = this.categoriesRepository.findByName(name);
 
       if (!categoryExists) {
-        this.categoryRepository.create(name, description);
+        this.categoriesRepository.create(name, description);
       }
     });
   }
