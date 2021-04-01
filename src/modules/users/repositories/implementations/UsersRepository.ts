@@ -1,9 +1,9 @@
 import { getRepository, Repository } from "typeorm";
 import { UserDto } from "../../dto/UserDto";
 import { User } from "../../model/User";
-import { IUserRepository } from "../IUsersRepository";
+import { IUsersRepository } from "../IUsersRepository";
 
-class UsersRepository implements IUserRepository {
+class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {

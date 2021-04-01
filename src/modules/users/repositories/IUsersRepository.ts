@@ -1,7 +1,7 @@
 import { UserDto } from "../dto/UserDto";
 
-interface IUserRepository {
+interface IUsersRepository {
   create(userData: UserDto): Promise<void>;
 }
 
-export { IUserRepository };
+export { IUsersRepository };
