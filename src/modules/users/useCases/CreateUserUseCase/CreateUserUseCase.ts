@@ -1,6 +1,7 @@
 import { inject, injectable } from "tsyringe";
-import { UserDto } from "../dto/UserDto";
-import { IUsersRepository } from "../repositories/IUsersRepository";
+import { hashSync } from "bcryptjs";
+import { UserDto } from "../../dto/UserDto";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 @injectable()
 class CreateUserUseCase {
@@ -9,9 +10,9 @@ class CreateUserUseCase {
   ) {}
 
   async execute({ email, password }: UserDto): Promise<void> {
-    // const passwordHash = await bcrypt.hash(password, 8);
+    const passwordHash = hashSync(password, 8);
 
-    await this.usersRepository.create({ email, password });
+    await this.usersRepository.create({ email, password: passwordHash });
   }
 }
 
