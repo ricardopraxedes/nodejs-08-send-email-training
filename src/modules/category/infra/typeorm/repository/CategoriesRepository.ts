@@ -1,7 +1,8 @@
 import { getRepository, Repository } from "typeorm";
+import { ICategoriesRepository } from "../../../repositories/ICategoriesRepository";
 import { Category } from "../model/Category";
 
-class CategoriesRepository {
+class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
 
   constructor() {

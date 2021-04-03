@@ -2,14 +2,14 @@ import csvParse from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
 import { CategoryDto } from "../../dto/CategoryDto";
-import { CategoriesRepository } from "../../repository/CategoriesRepository";
+import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 @injectable()
 class ImportCategoryUseCase {
   constructor(
     @inject("CategoriesRepository")
-    private categoriesRepository: CategoriesRepository
-  ) { }
+    private categoriesRepository: ICategoriesRepository
+  ) {}
 
   loadCategories(file: Express.Multer.File): Promise<CategoryDto[]> {
     return new Promise((resolve, reject) => {

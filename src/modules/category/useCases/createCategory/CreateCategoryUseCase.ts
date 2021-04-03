@@ -1,12 +1,12 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
-import { CategoriesRepository } from "../../repository/CategoriesRepository";
+import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 @injectable()
 class CreateCategoryUseCase {
   constructor(
     @inject("CategoriesRepository")
-    private categoriesRepository: CategoriesRepository
+    private categoriesRepository: ICategoriesRepository
   ) {}
 
   async execute(name: string, description: string): Promise<void> {

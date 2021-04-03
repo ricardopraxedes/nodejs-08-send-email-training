@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { deleteFile } from "../../../../utils/files";
-import { User } from "../../model/User";
-import { UsersRepository } from "../../repositories/implementations/UsersRepository";
+import { User } from "../../infra/typeorm/model/User";
+import { UsersRepository } from "../../infra/typeorm/repositories/UsersRepository";
 
 @injectable()
 class UpdatePhotoUseCase {

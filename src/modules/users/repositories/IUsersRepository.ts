@@ -1,5 +1,5 @@
 import { UserDto } from "../dto/UserDto";
-import { User } from "../model/User";
+import { User } from "../infra/typeorm/model/User";
 
 interface IUsersRepository {
   create(userData: UserDto): Promise<void>;
