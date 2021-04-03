@@ -5,9 +5,9 @@
   "username": "training",
   "password": "training",
   "database": "training-db",
-  "migrations": ["./src/database/migrations/*.ts"],
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
   "entities": ["./src/**/model/*.ts"],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
