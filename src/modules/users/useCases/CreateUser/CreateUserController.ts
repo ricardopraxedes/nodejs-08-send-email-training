@@ -7,7 +7,7 @@ class CreateUserController {
     const { email, password } = request.body;
     const createUserUseCase = container.resolve(CreateUserUseCase);
 
-    createUserUseCase.execute({ email, password });
+    await createUserUseCase.execute({ email, password });
 
     return response.status(201).send();
   }
