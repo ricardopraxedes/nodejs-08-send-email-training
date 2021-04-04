@@ -3,16 +3,20 @@ import { CarDto } from "../../dto/CarDto";
 import { Car } from "../../model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
-class CarRepository implements ICarsRepository {
+class CarsRepository implements ICarsRepository {
   private repository = getRepository(Car);
 
-  create(data: CarDto): Car {
+  async create(data: CarDto): Promise<Car> {
     const car = this.repository.create({ ...data });
 
-    this.repository.save(car);
+    await this.repository.save(car);
 
     return car;
   }
+
+  async list(): Promise<Car[]> {
+    return this.repository.find();
+  }
 }
 
-export { CarRepository };
+export { CarsRepository };

@@ -16,6 +16,10 @@ class InMemoryCarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  async list(): Promise<Car[]> {
+    return this.cars;
+  }
 }
 
 export { InMemoryCarsRepository };
