@@ -29,6 +29,7 @@
     "arrow-body-style": "off",
     "camelcase": "off",
     "consistent-return": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-console": "off"
   }
 }
