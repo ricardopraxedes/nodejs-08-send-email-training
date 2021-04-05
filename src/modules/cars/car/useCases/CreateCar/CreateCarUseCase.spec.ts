@@ -2,11 +2,12 @@ import { validate } from "uuid";
 import { AppError } from "../../../../../errors/AppError";
 import { CarDto } from "../../dto/CarDto";
 import { InMemoryCarsRepository } from "../../infra/in-memory/InMemoryCarsRepository";
+import { ICarsRepository } from "../../repositories/ICarsRepository";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 
 describe("Create car use case", () => {
-  let carRepository;
-  let createCarUseCase;
+  let carRepository: ICarsRepository;
+  let createCarUseCase: CreateCarUseCase;
 
   beforeEach(() => {
     carRepository = new InMemoryCarsRepository();
@@ -29,7 +30,7 @@ describe("Create car use case", () => {
 
       brand: "brand",
 
-      category: "1",
+      category: null,
     });
 
     const car = await createCarUseCase.execute(carDto);
@@ -58,7 +59,7 @@ describe("Create car use case", () => {
 
       brand: "brand",
 
-      category: "1",
+      category: null,
     });
 
     await createCarUseCase.execute(carDto);

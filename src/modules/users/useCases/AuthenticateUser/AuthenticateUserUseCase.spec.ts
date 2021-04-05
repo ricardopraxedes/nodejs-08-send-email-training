@@ -1,11 +1,12 @@
 import { hashSync } from "bcryptjs";
 import { AppError } from "../../../../errors/AppError";
 import { InMemoryUsersRepository } from "../../infra/in-memory/InMemoryUsersRepository";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 
 describe("Authenticate user use case", () => {
-  let usersRepository;
-  let authenticateUsersUseCase;
+  let usersRepository: IUsersRepository;
+  let authenticateUsersUseCase: AuthenticateUserUseCase;
 
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
