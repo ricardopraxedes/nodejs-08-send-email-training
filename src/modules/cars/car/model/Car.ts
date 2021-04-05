@@ -38,6 +38,9 @@ class Car {
     if (!this.id) {
       this.id = uuidv4();
     }
+    if (!this.available) {
+      this.available = true;
+    }
   }
 }
 

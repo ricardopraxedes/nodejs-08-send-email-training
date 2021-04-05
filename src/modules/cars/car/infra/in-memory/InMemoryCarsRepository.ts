@@ -3,9 +3,9 @@ import { Car } from "../../model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
 class InMemoryCarsRepository implements ICarsRepository {
-  private cars: Car[];
+  private cars: Car[] = [];
 
-  create(data: CarDto): Car {
+  async create(data: CarDto): Promise<Car> {
     const car = new Car();
 
     Object.assign(car, {
@@ -19,6 +19,10 @@ class InMemoryCarsRepository implements ICarsRepository {
 
   async list(): Promise<Car[]> {
     return this.cars;
+  }
+
+  async findByLicensePlate(license_plate: string): Promise<Car> {
+    return this.cars.find((car) => car.license_plate === license_plate);
   }
 }
 

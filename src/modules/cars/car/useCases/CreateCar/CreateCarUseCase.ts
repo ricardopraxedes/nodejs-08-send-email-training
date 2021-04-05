@@ -1,4 +1,6 @@
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../../errors/AppError";
+import { CarDto } from "../../dto/CarDto";
 import { Car } from "../../model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
@@ -8,8 +10,18 @@ class CreateCarUseCase {
     @inject("CarsRepository") private carsRepository: ICarsRepository
   ) {}
 
-  execute(): Car {
-    return null;
+  async execute(data: CarDto): Promise<Car> {
+    const carExists = await this.carsRepository.findByLicensePlate(
+      data.license_plate
+    );
+
+    if (carExists) {
+      throw new AppError("License plate already in use.");
+    }
+
+    const car = await this.carsRepository.create(data);
+
+    return car;
   }
 }
 
