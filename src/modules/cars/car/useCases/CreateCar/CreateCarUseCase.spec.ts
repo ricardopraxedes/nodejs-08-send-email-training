@@ -1,7 +1,7 @@
 import { validate } from "uuid";
 import { AppError } from "../../../../../errors/AppError";
 import { CarDto } from "../../dto/CarDto";
-import { InMemoryCarsRepository } from "../../infra/in-memory/InMemoryCarsRepository";
+import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 

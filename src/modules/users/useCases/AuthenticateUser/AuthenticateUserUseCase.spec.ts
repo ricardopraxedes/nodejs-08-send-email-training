@@ -1,6 +1,6 @@
 import { hashSync } from "bcryptjs";
 import { AppError } from "../../../../errors/AppError";
-import { InMemoryUsersRepository } from "../../infra/in-memory/InMemoryUsersRepository";
+import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 
