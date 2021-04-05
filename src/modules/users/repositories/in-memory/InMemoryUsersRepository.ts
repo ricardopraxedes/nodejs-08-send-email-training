@@ -1,6 +1,6 @@
 import { UserDto } from "../../dto/UserDto";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { User } from "../typeorm/model/User";
+import { IUsersRepository } from "../IUsersRepository";
+import { User } from "../../infra/typeorm/model/User";
 
 class InMemoryUsersRepository implements IUsersRepository {
   private users: User[] = [];
