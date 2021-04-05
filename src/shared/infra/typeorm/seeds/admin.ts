@@ -12,6 +12,8 @@ async function create() {
   await connection.query(
     `INSERT INTO users (id,email,password,"isAdmin",created_at) VALUES ('${id}','admin@admin.com','${password}',true,'now()')`
   );
+
+  await connection.close();
 }
 
 create().then(() => console.log("Admin seed created."));
