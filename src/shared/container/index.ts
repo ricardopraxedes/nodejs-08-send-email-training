@@ -1,5 +1,5 @@
 import { container } from "tsyringe";
-import { CarsRepository } from "../../modules/cars/car/infra/typeorm/CarsRepository";
+import { CarsRepository } from "../../modules/cars/car/infra/typeorm/repository/CarsRepository";
 import { ICarsRepository } from "../../modules/cars/car/repositories/ICarsRepository";
 import { CategoriesRepository } from "../../modules/cars/category/infra/typeorm/repository/CategoriesRepository";
 import { ICategoriesRepository } from "../../modules/cars/category/repositories/ICategoriesRepository";

@@ -1,5 +1,5 @@
 import { CarDto } from "../../dto/CarDto";
-import { Car } from "../../model/Car";
+import { Car } from "../typeorm/model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
 class InMemoryCarsRepository implements ICarsRepository {

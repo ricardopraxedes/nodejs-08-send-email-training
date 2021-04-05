@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../../errors/AppError";
 import { CarDto } from "../../dto/CarDto";
-import { Car } from "../../model/Car";
+import { Car } from "../../infra/typeorm/model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
 @injectable()

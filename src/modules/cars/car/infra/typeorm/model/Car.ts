@@ -1,7 +1,8 @@
-import { Column, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
-import { Category } from "../../category/infra/typeorm/model/Category";
+import { Category } from "../../../../category/infra/typeorm/model/Category";
 
+@Entity("cars")
 class Car {
   @PrimaryColumn()
   id: string;
