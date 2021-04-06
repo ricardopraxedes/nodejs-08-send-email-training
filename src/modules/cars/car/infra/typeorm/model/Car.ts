@@ -35,6 +35,9 @@ class Car {
   @JoinColumn({ name: "category_id" })
   category: Category;
 
+  @Column()
+  category_id: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();

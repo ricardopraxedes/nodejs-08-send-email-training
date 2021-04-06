@@ -15,7 +15,7 @@ class CarDto {
 
   created_at: Date;
 
-  category: Category;
+  category_id: string;
 }
 
 export { CarDto };
