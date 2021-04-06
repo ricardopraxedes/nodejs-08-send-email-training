@@ -1,15 +1,15 @@
 import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
-import { ListCarsUseCase } from "./ListCarsUseCase";
+import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase";
 import { CarDto } from "../../dto/CarDto";
 
 describe("List cars use case", () => {
   let carsRepository: ICarsRepository;
-  let listCarUseCase: ListCarsUseCase;
+  let listAvailableCarsUseCase: ListAvailableCarsUseCase;
 
   beforeEach(() => {
     carsRepository = new InMemoryCarsRepository();
-    listCarUseCase = new ListCarsUseCase(carsRepository);
+    listAvailableCarsUseCase = new ListAvailableCarsUseCase(carsRepository);
   });
 
   it("should list all available cars", async () => {
@@ -33,7 +33,7 @@ describe("List cars use case", () => {
 
     const car = await carsRepository.create(carDto);
 
-    const cars = await listCarUseCase.execute();
+    const cars = await listAvailableCarsUseCase.execute();
 
     expect(cars).toEqual([car]);
   });
@@ -78,7 +78,9 @@ describe("List cars use case", () => {
     const firstCar = await carsRepository.create(firstCarDto);
     const secondCar = await carsRepository.create(secondCarDto);
 
-    const cars = await listCarUseCase.execute({ name: firstCar.name });
+    const cars = await listAvailableCarsUseCase.execute({
+      name: firstCar.name,
+    });
 
     expect(cars).toEqual([firstCar]);
   });
@@ -123,7 +125,9 @@ describe("List cars use case", () => {
     await carsRepository.create(firstCarDto);
     const secondCar = await carsRepository.create(secondCarDto);
 
-    const cars = await listCarUseCase.execute({ brand: secondCar.brand });
+    const cars = await listAvailableCarsUseCase.execute({
+      brand: secondCar.brand,
+    });
 
     expect(cars).toEqual([secondCar]);
   });
@@ -168,7 +172,9 @@ describe("List cars use case", () => {
     await carsRepository.create(firstCarDto);
     const secondCar = await carsRepository.create(secondCarDto);
 
-    const cars = await listCarUseCase.execute({ brand: secondCar.brand });
+    const cars = await listAvailableCarsUseCase.execute({
+      brand: secondCar.brand,
+    });
 
     expect(cars).toEqual([secondCar]);
   });
@@ -213,7 +219,7 @@ describe("List cars use case", () => {
     await carsRepository.create(firstCarDto);
     const secondCar = await carsRepository.create(secondCarDto);
 
-    const cars = await listCarUseCase.execute({
+    const cars = await listAvailableCarsUseCase.execute({
       category_id: secondCar.category_id,
     });
 

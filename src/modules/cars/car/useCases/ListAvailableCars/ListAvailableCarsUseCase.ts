@@ -12,7 +12,7 @@ interface FilterOptions {
 }
 
 @injectable()
-class ListCarsUseCase {
+class ListAvailableCarsUseCase {
   constructor(
     @inject("CarsRepository") private carsRepository: ICarsRepository
   ) {}
@@ -30,4 +30,4 @@ class ListCarsUseCase {
   }
 }
 
-export { ListCarsUseCase };
+export { ListAvailableCarsUseCase };
