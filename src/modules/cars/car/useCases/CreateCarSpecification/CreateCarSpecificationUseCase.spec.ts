@@ -66,6 +66,6 @@ describe("Create car specification", () => {
 
     expect(async () => {
       await createCarSpecificationUseCase.execute(car_id, specification_ids);
-    }).rejects.toBeInstanceOf(AppError);
+    }).rejects.toEqual(new AppError("Car not found.", 404));
   });
 });
