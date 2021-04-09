@@ -1,6 +1,6 @@
 import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
-export default async (host = "db"): Promise<Connection> => {
+async function createDBConnection(host = "db"): Promise<Connection> {
   const newOptions = await getConnectionOptions();
 
   return createConnection(
@@ -10,4 +10,6 @@ export default async (host = "db"): Promise<Connection> => {
         process.env.NODE_ENV === "test" ? "test_db" : newOptions.database,
     })
   );
-};
+}
+
+export { createDBConnection };

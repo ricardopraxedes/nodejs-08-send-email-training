@@ -5,7 +5,7 @@ import swaggerUi from "swagger-ui-express";
 import { AppError } from "../../../errors/AppError";
 import swaggerFile from "../../../swagger.json";
 import "../../container";
-import createDBConnection from "../typeorm";
+import { createDBConnection } from "../typeorm";
 import { router } from "./routes";
 
 createDBConnection();
