@@ -17,7 +17,7 @@ export async function ensureAuthenticated(
   const usersRepository = new UsersRepository();
 
   if (!authHeader) {
-    throw new Error("Token missing");
+    throw new AppError("Token missing", 401);
   }
 
   const [, token] = authHeader.split(" ");
@@ -28,7 +28,7 @@ export async function ensureAuthenticated(
     const user = await usersRepository.findById(sub);
 
     if (!user) {
-      throw new AppError("User not found.", 400);
+      throw new AppError("User not found.", 404);
     }
 
     request.user = user;
