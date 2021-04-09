@@ -1,6 +1,6 @@
 import { hashSync } from "bcryptjs";
 import { v4 as uuidV4 } from "uuid";
-import { createDBConnection } from "..";
+import createDBConnection from "..";
 
 async function create() {
   const connection = await createDBConnection("localhost");
