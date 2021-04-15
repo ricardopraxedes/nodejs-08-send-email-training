@@ -1,5 +1,5 @@
 import { validate } from "uuid";
-import { AppError } from "../../../../../errors/AppError";
+import { AppError } from "../../../../../shared/errors/AppError";
 import { CarDto } from "../../dto/CarDto";
 import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { ICarsRepository } from "../../repositories/ICarsRepository";

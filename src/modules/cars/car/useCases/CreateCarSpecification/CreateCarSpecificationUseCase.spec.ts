@@ -1,4 +1,4 @@
-import { AppError } from "../../../../../errors/AppError";
+import { AppError } from "../../../../../shared/errors/AppError";
 import { SpecificationDto } from "../../../specifications/dto/SpecificationDto";
 import { InMemorySpecificationsRepository } from "../../../specifications/repositories/in-memory/InMemorySpecificationsRepository";
 import { CarDto } from "../../dto/CarDto";
