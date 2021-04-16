@@ -1,4 +1,4 @@
-import { AppError } from "../../../../errors/AppError";
+import { AppError } from "../../../../../shared/errors/AppError";
 
 export namespace ForgotPasswordError {
   export class UserNotFound extends AppError {

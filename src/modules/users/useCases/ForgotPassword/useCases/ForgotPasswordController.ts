@@ -4,11 +4,11 @@ import { ForgotPasswordUseCase } from "./ForgotPasswordUseCase";
 
 class ForgotPasswordController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { email } = request.params;
+    const { email } = request.query;
 
     const forgotPasswordUseCase = container.resolve(ForgotPasswordUseCase);
 
-    await forgotPasswordUseCase.execute(email);
+    await forgotPasswordUseCase.execute(email as string);
 
     return response.send();
   }
