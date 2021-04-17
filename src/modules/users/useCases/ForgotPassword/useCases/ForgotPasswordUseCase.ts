@@ -48,7 +48,7 @@ class ForgotPasswordUseCase {
     );
 
     const mailVariables = {
-      link: `http://localhost:3333/${passwordToken}`,
+      link: `${process.env.RESET_PASSWORD_URL}/${passwordToken}`,
     };
 
     const subject = "Request to change password.";
