@@ -22,6 +22,10 @@ class UsersPasswordTokensRepository implements IUsersPasswordTokensRepository {
 
     await this.repository.save(userPasswordToken);
   }
+
+  async findByPasswordToken(passwordToken: string): Promise<UserPasswordToken> {
+    return this.repository.findOne({ passwordToken });
+  }
 }
 
 export { UsersPasswordTokensRepository };
