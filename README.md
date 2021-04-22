@@ -1,3 +1,3 @@
-# nodejs-dependency-injection-training
+# nodejs-send-email-training
 
-Api using TSyringe for dependency injection following RocketSeat Node.js bootcamp classes.
+Send email using nodemailer following RocketSeat Node.js bootcamp classes.
